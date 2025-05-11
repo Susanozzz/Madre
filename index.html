@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Día de la Madre</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffe6f0, #fff0f5);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #d81b60;
+      margin-bottom: 10px;
+      animation: fadeInDown 2s ease-in-out;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4em;
+      color: #e91e63;
+      margin-bottom: 20px;
+      animation: fadeInDown 3s ease-in-out;
+    }
+
+    .mensaje {
+      max-width: 800px;
+      padding: 20px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      color: #333;
+      font-size: 1.2em;
+      animation: fadeInUp 4s ease-in-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .corazones {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .corazon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: flotar 6s linear infinite;
+    }
+
+    .corazon::before,
+    .corazon::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .corazon::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .corazon::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Música de fondo oculta -->
+  <audio autoplay loop>
+    <source src="https://limewire.com/d/lgBgx#gD2wK4ROyq" type="audio/mpeg">
+    Tu navegador no soporta el audio.
+  </audio>
+
+  <h2>Jefferson te desea un</h2>
+  <h1>Feliz Día de la Madre</h1>
+  <div class="mensaje">
+    Mamá, en este día tan especial quiero recordarte cuánto te amo y cuánto valoro todo lo que has hecho por mí. 
+    Tu amor es la fuerza que siempre me impulsa a seguir adelante, tu abrazo es el refugio que nunca falla, y tus palabras 
+    siempre han sido el mejor consejo. Gracias por cada sacrificio, cada sonrisa, cada enseñanza y por tu amor incondicional. 
+    Eres la persona más especial en mi vida y hoy más que nunca quiero que lo sepas. ¡Feliz día, mamá! Que este mensaje 
+    te abrace el corazón tanto como tú siempre has abrazado el mío.
+  </div>
+
+  <div class="corazones">
+    <script>
+      for(let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.className = "corazon";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        document.querySelector(".corazones").appendChild(heart);
+      }
+    </script>
+  </div>
+</body>
+</html>
