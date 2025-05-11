@@ -118,7 +118,20 @@
     <source src="https://raw.githubusercontent.com/Susanozzz/Madre/refs/heads/main/Los%20Caminos%20De%20La%20Vida%2C%20Los%20Diablitos%20-%20Video%20Oficial.mp3" type="audio/mpeg">
     Tu navegador no soporta el audio.
   </audio>
-
+  
+<script>
+  // Intenta forzar la reproducción tras interacción
+  document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("bg-music");
+    const playAudio = () => {
+      audio.play().catch(() => {
+        console.log("Esperando interacción del usuario para reproducir el audio.");
+      });
+    };
+    document.body.addEventListener("click", playAudio, { once: true });
+  });
+  
+</script>
   <h2>Jefferson te desea un</h2>
   <h1>Feliz Día de la Madre</h1>
   <div class="mensaje">
